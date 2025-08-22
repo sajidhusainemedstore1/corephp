@@ -40,6 +40,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         Password: <input type="password" name="password" required><br>
         <button type="submit">Login</button>
     </form>
-    <a href="insert.php">Sign Up</a>
+    <a href="insert.php">Sign Up </a>
 </body>
 </html>
