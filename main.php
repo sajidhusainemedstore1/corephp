@@ -22,8 +22,7 @@ $result = mysqli_query($conn, "SELECT * FROM registration");
         <a href="logout.php">Logout</a>
     </p>
 
-    <p><a href="insert.php">
-        Add New User</a></p>
+    <p><a href="insert.php">Add New User</a></p>
 
     <table>
         <tr>
