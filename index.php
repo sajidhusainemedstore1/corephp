@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email    = $_POST['email'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM registration WHERE email='$email' AND password='$password'";
+    $sql    = "SELECT * FROM registration WHERE email='$email' AND password='$password'";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) == 1) {
@@ -31,15 +31,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Login</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="container">
     <h2>Login Page</h2>
-    <?php if (isset($error)) echo "<p style='color:red'>$error</p>"; ?>
+    <?php if (isset($error)) echo "<p class='error'>$error</p>"; ?>
     <form method="POST">
-        Email: <input type="email" name="email" required><br>
-        Password: <input type="password" name="password" required><br>
+        <input type="email" name="email" placeholder="Enter Email" required>
+        <input type="password" name="password" placeholder="Enter Password" required>
         <button type="submit">Login</button>
     </form>
-    <a href="insert.php">Sign Up</a>
+    <p style="text-align:center; margin-top:10px;">
+        <a href="insert.php">Sign Up</a>
+    </p>
+</div>
 </body>
 </html>

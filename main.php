@@ -13,12 +13,18 @@ $result = mysqli_query($conn, "SELECT * FROM registration");
 <html>
 <head>
     <title>Main Page</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="container">
     <h2>Welcome <?php echo $_SESSION['name']; ?> 🎉</h2>
+    <p style="text-align:right;">
+        <a href="logout.php">Logout</a>
+    </p>
 
-    <a href="insert.php">Add New User</a>
-    <table border="1" cellpadding="8">
+    <p><a href="insert.php">➕ Add New User</a></p>
+
+    <table>
         <tr>
             <th>ID</th><th>Name</th><th>Email</th><th>Mobile</th><th>Actions</th>
         </tr>
@@ -35,8 +41,6 @@ $result = mysqli_query($conn, "SELECT * FROM registration");
         </tr>
         <?php } ?>
     </table>
-
-    <br>
-    <a href="logout.php">Logout</a>
+</div>
 </body>
 </html>
