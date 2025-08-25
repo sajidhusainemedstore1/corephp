@@ -22,11 +22,16 @@ $result = mysqli_query($conn, "SELECT * FROM registration");
         <a href="logout.php">Logout</a>
     </p>
 
-    <p><a href="insert.php">➕ Add New User</a></p>
+    <p><a href="insert.php">
+        Add New User</a></p>
 
     <table>
         <tr>
-            <th>ID</th><th>Name</th><th>Email</th><th>Mobile</th><th>Actions</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Actions</th>
         </tr>
         <?php while ($row = mysqli_fetch_assoc($result)) { ?>
         <tr>
