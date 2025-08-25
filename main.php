@@ -13,30 +13,34 @@ $result = mysqli_query($conn, "SELECT * FROM registration");
 <html>
 <head>
     <title>Main Page</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Welcome <?= $_SESSION['name']; ?> 🎉</h2>
+<div class="container">
+    <h2>Welcome <?php echo $_SESSION['name']; ?> 🎉</h2>
+    <p style="text-align:right;">
+        <a href="logout.php">Logout</a>
+    </p>
 
-    <a href="insert.php">Add New User</a>
-    <table border="1" cellpadding="8">
+    <p><a href="insert.php">➕ Add New User</a></p>
+
+    <table>
         <tr>
             <th>ID</th><th>Name</th><th>Email</th><th>Mobile</th><th>Actions</th>
         </tr>
         <?php while ($row = mysqli_fetch_assoc($result)) { ?>
         <tr>
-            <td><?= $row['id'] ?></td>
-            <td><?= $row['name'] ?></td>
-            <td><?= $row['email'] ?></td>
-            <td><?= $row['mobile'] ?></td>
+            <td><?php echo $row['id'] ?></td>
+            <td><?php echo $row['name'] ?></td>
+            <td><?php echo $row['email'] ?></td>
+            <td><?php echo $row['mobile'] ?></td>
             <td>
-                <a href="update.php?id=<?= $row['id'] ?>">Edit</a> |
-                <a href="delete.php?id=<?= $row['id'] ?>" onclick="return confirm('Delete this user?')">Delete</a>
+                <a href="update.php?id=<?php echo $row['id'] ?>">Edit</a> |
+                <a href="delete.php?id=<?php echo $row['id'] ?>" onclick="return confirm('Delete this user?')">Delete</a>
             </td>
         </tr>
         <?php } ?>
     </table>
-
-    <br>
-    <a href="logout.php">Logout</a>
+</div>
 </body>
 </html>
